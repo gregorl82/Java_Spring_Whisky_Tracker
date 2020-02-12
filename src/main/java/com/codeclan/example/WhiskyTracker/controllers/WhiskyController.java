@@ -35,4 +35,10 @@ public class WhiskyController {
         return new ResponseEntity<>(foundWhiskies, HttpStatus.OK);
     }
 
+    @GetMapping(value = "/whiskies/distilleries/region")
+    public ResponseEntity<List<Whisky>> findByDistilleryRegion(@RequestParam(name = "region") String region){
+        List<Whisky> foundWhiskies = whiskyRepository.findByDistilleryRegion(region);
+        return new ResponseEntity<>(foundWhiskies, HttpStatus.OK);
+    }
+
 }
