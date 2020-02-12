@@ -19,11 +19,11 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     WhiskyRepository whiskyRepository;
 
-    public DataLoader() {
-
-    }
 
     public void run(ApplicationArguments args) {
+        distilleryRepository.deleteAll();
+        whiskyRepository.deleteAll();
+
         Distillery distillery1 = new Distillery("Glendronach", "Highland");
         distilleryRepository.save(distillery1);
 
