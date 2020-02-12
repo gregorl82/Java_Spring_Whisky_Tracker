@@ -29,4 +29,10 @@ public class WhiskyController {
         return new ResponseEntity<>(foundWhiskies, HttpStatus.OK);
     }
 
+    @GetMapping(value = "/whiskies/distilleries")
+    public ResponseEntity<List<Whisky>> findByDistilleryNameAndAge(@RequestParam(name = "name") String name, @RequestParam(name = "age") int age){
+        List<Whisky> foundWhiskies = whiskyRepository.findByDistilleryNameAndAge(name, age);
+        return new ResponseEntity<>(foundWhiskies, HttpStatus.OK);
+    }
+
 }
